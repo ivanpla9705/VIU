@@ -1,7 +1,6 @@
 
 """
 Created on Wed Dec  1 18:32:06 2021
-
 @author: ivanp
 """
 #Librerias Necesarias
