@@ -40,6 +40,7 @@ def sen(POc, HOc, ZOc):
     SnZ = (mt.sin(rPOc)*mt.sin(rHOc))/mt.sin(rZOc)
     return round(SnZ,4)
 
+#Datos dados por el ejercicio
 d = dms_to_dd(7, 26, 2)
 g = dms_to_dd(39, 28, 30)
 alph = dms_to_dd(3, 28, 50)
@@ -48,6 +49,7 @@ alph = dms_to_dd(3, 28, 50)
 if (abs(d) > (90 - abs(g))):
     exit()
 
+#Relaciones
 PZ = 90 - g
 ZOc = 90 
 POc = 90 - d
@@ -57,6 +59,7 @@ CosHoc = tan(d,g)
 Hoc = mt.degrees(mt.acos(CosHoc))
 Hoc = round(Hoc,4)
 
+#Horas sidereas del Orto y Ocaso
 Toc = alph + (Hoc/15)
 Tor = alph - (Hoc/15)
 if (Tor < 0):
@@ -65,15 +68,18 @@ if (Tor < 0):
 Toc = dd_to_dms(Toc)
 Tor = dd_to_dms(Tor)
 
+#Obteniendo Z
 SenZ = sen(POc, Hoc, ZOc)
 Z = mt.degrees(mt.asin(SenZ))
 Z = round(Z,4)
 
+#Acimutes del Orto y Ocaso  
 aoc = 180 - Z
 aor = 360 - aoc
 
+#Impresion de resultados
 print("Hora siderea del ocaso:", Toc, "h, m, s")
 print("Hora siderea del orto:", Tor, "h, m, s")
 print("")
-print("coordenadas ocaso:", dd_to_dms(aoc),"°, ', ''")
-print("coordenadas orto:", dd_to_dms(aor), "°, ', ''")
+print("Acimut ocaso:", dd_to_dms(aoc),"°, ', ''")
+print("Acimut orto:", dd_to_dms(aor), "°, ', ''")
