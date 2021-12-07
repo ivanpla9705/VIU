@@ -1,0 +1,203 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{emptypage}
+\usepackage{scrextend}
+\usepackage{wrapfig}
+\usepackage{vmargin}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{float}	
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{subcaption}	
+\usepackage{setspace}
+\usepackage{gensymb}
+\parindent=0mm
+\pagestyle{empty}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\changefontsizes{18pt}
+\includegraphics[scale=0.50]{viulogo.png}
+\vspace{1.5cm}
+\begin{center}
+\begin{large}
+\textbf{
+Universidad Internacional de Valencia\\
+\vspace{0.3cm}
+Master universitario en Astronomía y Astrofísica}\\
+\vspace*{1.5cm}
+\begin{large}
+Astronomía clásica e Instrumentación Astronómica\\
+\vspace{0.5cm}
+Profesora: Marta González García\\
+\vspace{0.5cm}
+Actividad Guiada 1: Stellarium\\
+\vspace{0.5cm}
+Curso: 2021-2022 - Edición de octubre\\
+\end{large}
+\end{large}
+\vspace{5cm}
+\begin{minipage}{0.60\linewidth}
+Nombre:\\
+Iván Arturo Pla Guzmán\\
+\end{minipage}
+\vspace*{-0.5cm}
+\begin{minipage}{0.30\linewidth}
+e-mail:\\
+ivanpg05@gmail.com\\
+\end{minipage}
+
+\vspace*{0.2in}
+\end{center}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Esta actividad general consiste en realizar una serie de ejercicios utilizando el programa de Stellarium.\\\\
+%\begin{description}
+\textbf{Ej.1} Sitúate en la ciudad en la que vives. Mira hacia el Este y haz avanzar el tiempo. Estima el ángulo que forman las trayectorias de los astros con el horizonte del lugar. ¿Esperabas este valor?\\\\
+Se estima que el ángulo que forman las trayectorias de los cuerpos celestes con el horizonte es de unos $75\degree$ aproximadamente. Se llego a esta estimación tomando en cuenta la latitud del lugar en el que vivo que es San Nicolas de los Garza, Nuevo León, México, que cuenta con una latitud de $25\degree$ aproximadamente.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Ej_1.png}
+\caption{Vista hacia el Este desde San Nicolas de los Garza, Nuevo León, México}
+\end{figure}
+\textbf{Ej.2} Desde tu misma ciudad, ¿Cuál es la altura sobre el horizonte de la estrella polar o del polo sur austral, si vives en el hemisferio sur? Indica el nombre de 3 estrellas circumpolares.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{Polaris.png}
+\caption{Datos proporcionados por Stellarium sobre la estrella polar.}
+\end{figure}
+La información proporcionada por Stellarium nos dice que la altura de la estrella polar es de $25\degree28'10.3''$ por encima del horizonte.\\\\
+En cuanto a las estrellas circumpolares, tenemos muchas de donde escoger por lo que sin ningún motivo en especial mencionaremos a: HR 5563, HR 3751, HR 285.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.55]{HR5563.png}
+\caption{Datos proporcionados por Stellarium sobre HR 5563.}
+\includegraphics[scale=.58]{HR3751.png}
+\caption{Datos proporcionados por Stellarium sobre HR 3751.}
+\includegraphics[scale=.58]{HR285.png}
+\caption{Datos proporcionados por Stellarium sobre HR 258.}
+\end{figure}
+\textbf{Ej.3} Desde tu misma ciudad y en la época actual, indica las horas de salida (orto) y puesta (ocaso) del Sol en las fechas de los equinoccios y solsticios.\\\\
+Para este ejercicio se investigaron las fechas del equinoccio y solsticio del año 2021, dichas fechas se colocaron en stellarium y para cada una de ellas se observo y tomo nota de la hora de la salida y puesta de Sol. Con todo lo anterior se creo la siguiente tabla.
+\begin{table}[H]
+\centering
+\begin{tabular}{|lll|}
+\hline
+\multicolumn{3}{|c|}{Ciudad: San Nicolas de los Garza, Nuevo León, México}                                \\ \hline
+\multicolumn{3}{|c|}{Equinoccio}                                                                          \\ \hline
+\multicolumn{1}{|l|}{}                  & \multicolumn{1}{l|}{Salida (Orto)}       & Puesta (Ocaso)       \\ \hline
+\multicolumn{1}{|l|}{20 de marzo}       & \multicolumn{1}{l|}{6:52:48 UTC – 6:00}  & 18:41:29 UTC – 06:00 \\ \hline
+\multicolumn{1}{|l|}{22 de septiembre}  & \multicolumn{1}{l|}{7:40:20 UTC – 5:00}  & 19:23:35 UTC – 05:00 \\ \hline
+\multicolumn{3}{|c|}{Solsticio}                                                                           \\ \hline
+\multicolumn{1}{|l|}{}                  & \multicolumn{1}{l|}{Salida (orto)}       & Puesta (ocaso)       \\ \hline
+\multicolumn{1}{|l|}{21 de junio}       & \multicolumn{1}{l|}{7:02:20 UTC – 06:00} & 20:14:54 UTC – 06:00 \\ \hline
+\multicolumn{1}{|l|}{21 de   diciembre} & \multicolumn{1}{l|}{7:37:44 UTC – 06:00} & 17:38:28 UTC – 06:00 \\ \hline
+\end{tabular}
+\caption{Fechas y horas del equinoccio y solsticio en San Nicolas de los Garza, Nuevo León, México}
+\end{table}
+\textbf{Ej.4} Busca la Luna y sitúate en una hora en la que la Luna esté visible (sobre el horizonte). Avanza en el tiempo en saltos de un día. ¿Cambia mucho la posición de la Luna de un día para otro o poco? ¿Cuántos días hacen falta para que vuelva a estar (aproximadamente) en la misma zona del cielo? ¿Cambia mucho esta posición con respecto de la posición inicial?\\\\
+La posición de la luna efectivamente cambia, no de una manera muy grande, pero si considerable. Sería muy difícil percibir dicho cambio con el ojo humano simplemente saliendo y mirando hacia el cielo, pero Stellarium hace que la diferencia en posición sea más que obvia.\\\\
+La fecha inicial para la posición de la luna fue 2021-11-26 y la final, que es donde la posición fue más cercana, fue 2022-08-18.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.4]{Ej_4_1.png}
+\caption{Fecha y posición inicial de la luna en Stellarium.}
+\vspace{0.3cm}
+\includegraphics[scale=.4]{Ej_4_2.png}
+\caption{Fecha y posición final de la luna en Stellarium.}
+\end{figure}
+%\end{description}
+\textbf{Ej.5} Sitúate en Valencia y cambia la fecha al 3 de octubre de 2005, a las 9 de la mañana. Localiza y fija el Sol con la ventana de búsqueda. Acércate bastante y deja avanzar el tiempo. ¿Observas algo fuera de lo común? ¿Se observaría el mismo fenómeno en tu ciudad?\\\\
+Tras colocarnos en Valencia y dejar avanzar el tiempo en la fecha indicada se observa un eclipse solar que inicia aproximadamente a las 9:49:53 UTC+02:00, llega a la fase de eclipse total a las 11:01:15 UTC+02:00 y finaliza a las 12:30:10 UTC+02:00.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.4]{Eclipse.png}
+\caption{Eclipse solar llega a su punto máximo en Valencia el 3/10/2005.}
+\end{figure}
+Dicho fenómeno no podría haber sido visto desde mi ciudad ya que el eclipse estaría ocurriendo por debajo de la línea del horizonte, para comprobar esto se colocó la ubicación de mi ciudad en Stellarium así como la hora y fecha del eclipse.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.4]{Eclipse2.png}
+\caption{Eclipse tomando lugar en Venecia el 3/10/2005 imposible de ver desde San Nicolas de los Garza, Nuevo León, México al estar por debajo del horizonte.}
+\end{figure}
+\textbf{Ej.6} Dibuja el Analema desde tu ciudad (puedes utilizar la ventana de Cálculos Astronómicos, calculando las efemérides del Sol desde el día actual hasta el mismo día pasado un año).\\\\
+Utilizando la herramienta de cálculos astronómicos proporcionada por Stellarium se calcularon las efemérides del sol con 15 días solares de diferencia desde el 26/11/2021 hasta el 26/11/2022, obteniendo la siguiente figura.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.3]{analema.png}
+\caption{Analema creada por Stellarium sobre San Nicolas de los Garza, Nuevo León, México.}
+\end{figure}
+Adicionalmente se exportaron los datos de las efemérides para realizar un ploteo en Excel con el fin de comparar. Dicho ploteo es el siguiente.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{excel.png}
+\caption{Analema creado por medio de excel}
+\end{figure}
+\newpage
+\textbf{Ej.7} Haz un estudio sistemático de la posición del Sol a lo largo de un año. Apunta las fechas entre las cuales el Sol está pasando por una determinada constelación. Para ello obtén los límites de las constelaciones (B). Al finalizar, indica si has detectado alguna cosa inesperada.\\\\
+Para este ejercicio se eligió ubicación la ciudad de San Nicolas de los Garza, Nuevo León, México, con fecha de 26/11/2021, hora 12:00:00 y la constelación en cuestión es la de Escorpio. El intervalo de las fechas fue de un mes y el sol tardo exactamente 1 año en entrar nuevamente a la zona correspondiente a la constelación de Escorpio, esto fue algo inesperado ya que pensaba que el sol pasaría por dicha zona más de una vez por año.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{sol1.png}
+\caption{Posición inicial del Sol dentro de la constelación de Scorpio.}
+\vspace{0.3cm}
+\includegraphics[scale=0.4]{sol2.png}
+\caption{Posición final del Sol dentro de la constelación de Scorpio.}
+\end{figure}
+\textbf{Ej.8} Sitúate en el Polo Norte. La fecha de inicio será el 1 de enero de 2000. Estudia las posiciones de Júpiter y Saturno según avanzan los días. ¿Se parecen sus movimientos al de Marte? ¿Se diferencian del movimiento de Marte? ¿En qué?.\\\\
+Tanto la altura como el azimut de Júpiter y Saturno cambia cada día, el cambio en la altura es pequeño, de unos 4 o 5 minutos por día aproximadamente, el cambio en el azimut por otro lado es mas considerable siendo este de aproximadamente $1\degree$ por día. Conforme pasan los días se puede apreciar que la distancia entre Júpiter y Saturno se reduce cada vez más y a su vez Marte “sube” hasta que se vuelve visible al pasar sobre el horizonte entre finales de febrero y principios de marzo. Otra observación que me pareció interesante es el hecho que al dejar pasar mas el tiempo Júpiter y Saturno siempre permanecen por debajo de la eclíptica mientras que Marte, aunque no sea mucho, logra pasar sobre esta.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{Ej81.png}
+\caption{Marte siendo visto por encima del horizonte.}
+\vspace{0.3cm}
+\includegraphics[scale=0.4]{Ej82.png}
+\caption{Marte "subiendo" por encima de la eclíptica.}
+\end{figure}
+\textbf{Ej.9} Pon una captura de pantalla del Stellarium del Polo Norte Celeste desde el Observatorio de Kitt Peak en la fecha 1000 d.C. Localiza la Polar y explica su posición. ¿A cuántos grados está del Polo Norte Celeste?
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{pol.png}
+\caption{Estrella polar en el año 1000 d.C. vista desde el Observatorio de Kitt Peak }
+\end{figure}
+Stellarium nos dice que en el año 1000 d.C la estrella polar contaba con una declinación de aproximadamente $83\degree$ mientras que, en el año actual 2021, cuenta con una declinación de aproximadamente $89\degree$. Esta diferencia se debe a uno de los movimientos que realiza la Tierra a lo largo de su trayectoria alrededor del Sol,el movimiento de precesión. Este movimiento es un cambio lento pero gradual de la orientación del eje de la Tierra, el eje del polo celeste se desplaza alrededor de la eclíptica formando un cono, completando una vuelta cada 25776 años. Por lo que en un futuro muy lejano la estrella Polaris dejara de ser utilizada como la estrella polar y una nueva tomara su lugar.\\\\
+\textbf{Ej.10} Escoge un observatorio e indica su localización geográfica. Obtén, para cada uno de los siguientes objetos astronómicos, un rango de fechas en los que son visibles de noche. Halla para cada objeto y una fecha concreta la altura en el momento de su culminación superior.\\
+Objetos: M31, M51, Barnard star, Júpiter, las pléyades\\\\
+Para este ejercicio se tomo como ubicación el Observatorio Astronómico Nacional San Pedro Mártir con coordenadas: $31{\degree}02'38''N$ $115{\degree}27'49''O$ / 31.0439, -115.4637\\\\
+Se utilizo la herramienta de cálculos astronómicos del programa Stellarium. Dentro de ella se uso el apartado de gráficos para obtener la gráfica de la altitud mensual del cuerpo celeste en cuestión a una hora especifica, siendo esta las 8 pm. De esta manera se obtuvieron las gráficas de cada uno de los objetos y observando las gráficas podemos ver los meses en los que no son visibles ya que durante es tiempo cuentan con una elevación menor a $0\degree$.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{M31.png}
+\caption{Altura mensual de la galaxia M31.}
+\vspace{0.3cm}
+\includegraphics[scale=0.4]{M51.png}
+\caption{Altura mensual de la galaxia M51.}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.4]{BStar.png}
+\caption{Altura mensual de la Estrella de Barnard.}
+\vspace{0.3cm}
+\includegraphics[scale=0.4]{Jupiter.png}
+\caption{Altura mensual de Jupiter.}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.4]{pleyades.png}
+\caption{Altura mensual de las pleyades.}
+\end{figure}
+\end{document}
