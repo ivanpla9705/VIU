@@ -1,0 +1,402 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{emptypage}
+\usepackage{scrextend}
+\usepackage{wrapfig}
+\usepackage{vmargin}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{float}	
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{subcaption}	
+\usepackage{setspace}
+\usepackage{gensymb}
+\newcommand\tenpow[1]{\ensuremath{{\times}10^{#1}}}
+\parindent=0mm
+\pagestyle{empty}
+
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\changefontsizes{18pt}
+\includegraphics[scale=0.50]{viulogo.png}
+\vspace{1.5cm}
+\begin{center}
+\begin{large}
+\textbf{
+Universidad Internacional de Valencia\\
+\vspace{0.3cm}
+Master universitario en Astronomía y Astrofísica}\\
+\vspace*{1.5cm}
+\begin{large}
+Exoplanetas y Astrobiología\\
+\vspace{0.5cm}
+Profesor: Dr. Pedro Viana Almeida\\
+\vspace{0.5cm}
+Actividad Guiada 1:\\
+\vspace{0.1cm}
+Detección de un exoplaneta: parámetros y zona de 
+habitabilidad\\
+\vspace{0.5cm}
+Curso: 2021-2022 - Edición de octubre\\
+\end{large}
+\end{large}
+\vspace{5cm}
+\begin{minipage}{0.60\linewidth}
+Nombre:\\
+Iván Arturo Pla Guzmán\\
+\end{minipage}
+\vspace*{-0.5cm}
+\begin{minipage}{0.30\linewidth}
+e-mail:\\
+ivanpg05@gmail.com\\
+\end{minipage}
+
+\vspace*{0.2in}
+\end{center}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+El objetivo de esta actividad es obtener diversos parámetros físicos de un exoplaneta analizando sus datos de transito y curva de velocidad. Dichos parámetros los obtendremos resolviendo los siguientes ejercicios:\\
+Datos: $M=0.45$\(M_\odot\), $R_s=0.46$\(M_\odot\), $T_s=3350K$, $P=2.6439$ días, $e=0.16$\\\\
+Para resolver los ejercicios se creo un código en Python, se introdujeron los datos proporcionados así como otras constantes, dicho código se encontrara al final del documento.\\\\
+\textbf{Ej.1:} Representa gráficamente la curva de luz de la estrella, y argumenta 
+por qué se intuye la presencia de un planeta.\\\\
+Para obtener la curva de luz se leyeron los datos de transito ya proporcionados para crear una gráfica de la variación del flujo respecto al tiempo.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{grafica11.png}
+\caption{Gráfico de la variación de flujo de la estrella}
+\end{figure} 
+Viendo el gráfico podemos asumir la parecencia de un planeta orbitando la estrella ya que se observa una gran disminución en su brillo durante un intervalo de tiempo fijo.\\\\
+\textbf{Ej.2:} Obtén la profundidad del tránsito, y a partir de ésta, calcula el radio del planeta.\\\\
+Para obtener la profundidad del tránsito (disminución de luminosidad) usamos directamente la formula:
+\begin{equation}
+TD=\frac{C_1-C_2}{C_1}
+\end{equation}
+En donde $C_1$ es el valor más alto de luminosidad y $C_2$ es el valor más bajo, esto nos da un valor para la profundidad del tránsito de:
+\begin{equation}
+TD=0.0097
+\end{equation}
+Siendo este un valor adimencional ya que las unidades, al ser todas unidades de luminosidad, se cancelan.\\\\
+Ya que obtuvimos el valor de $TD$ podemos sustituirlo y despejar para obtener el radio del planeta.
+\begin{gather}
+TD=\left(\frac{R_p}{R_s}\right)^2\\
+R_p=\sqrt{TD}*R_s
+\end{gather}
+Sustituyendo los valores y resolviendo obtenemos:
+\begin{gather}
+R_p=\sqrt{(0.0097)}*(320.16\tenpow{6}\,m)=31485479.64\,m=31485.48\,km
+\end{gather}
+\textbf{Ej.3:} Calcula la distancia del planeta a la estrella que órbita.\\\\
+Para obtener la distancia estrella-planeta usamos la relación entre el periodo orbital y dicha distancia dada por la 3ra Ley de Kepler.
+\begin{equation}
+\frac{P^2}{a^3}=\frac{1}{M_s}
+\end{equation}
+En donde $P$ es la órbita en años sidéreos y $M_s$ es la masa de la estrella en masas solares para obtener el valor de la distancia $a$ en U.A. Despejando y resolviendo obtenemos:
+\begin{equation}
+a=\sqrt[3]{M_s*P^2}\,{\approx}\,0.03\,U.A.= 4278449.66\,km
+\end{equation}
+Por el valor obtenido podemos saber que el planeta se encuentra demasiado cerca de la estrella. Para dar una idea de lo cerca que se encuentra, la distancia entre Mercurio y el sol es de ${\approx}\,0.4\,U.A$\\\\
+\textbf{Ej.4:} Representa gráficamente la curva de velocidad radial de la estrella, explica qué indica cada eje, y qué se observa en la gráfica.\\\\
+Para graficar la velocidad radial de la estrella usamos los datos de velocidad ya proporcionados. Se utilizaron los datos de velocidad radial, fase y error para crear la siguiente gráfica.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{grafica5.png}
+\caption{Gráfico de la velocidad radial de la estrella}
+\label{fig:vr}
+\end{figure} 
+En la Fig.\ref{fig:vr} podemos ver las variaciones de la velocidad radial, eje $x$, a lo largo del tiempo, eje $y$, que en este caso se muestra en fases. Dicha variación es producida por el efecto Doppler ya que tanto la estrella como el planeta orbitan alrededor de un centro de masa en común. De igual manera se le realizo un fit a la gráfica para mostrar el comportamiento senoidal.\\\\
+\textbf{Ej.5:} Obtén K, la semi-amplitud de la velocidad radial. Para ello representa la curva de velocidad radial en función de la fase, y estima el valor de la amplitud de la modulación.\\\\
+La Fig.\ref{fig:vr} ya se encuentra en función de la fase, por lo que para obtener el valor de $k$ simplemente tomamos el valor máximo de todas las velocidades, siendo este.
+\begin{gather}
+k=18.46\,m/s\,\text{basandonos en el fit}\\
+k=28.81\,m/s\,\text{basandonos en los datos}
+\end{gather}
+\textbf{Ej.6:}  Calcula la masa mínima del planeta. Comenta el valor obtenido. Calcula la masa real del planeta, y explica cómo puedes conocerla.\\\\
+Para calcular la masa usamos la siguiente formula:
+\begin{equation}
+M_p\sin{i}=4.92\tenpow{-3}\sqrt{1-e^2}{\cdot}k{\cdot}P^{1/3}{\cdot}M^{2/3}_s
+\label{mmin}
+\end{equation}
+En donde $M_p$ es la masa del planeta en masas de Júpiter, $i$ es la inclinación de la órbita, $e$ es la excentricidad de la órbita, $k$ es la semi-amplitud de la orbita en $m/s$, $P$ es el periodo orbital en días y $M_s$ es la masa de la estrella en masas solares.\\\\
+Al desconocer el valor de $i$ la Ec.\ref{mmin} solo nos va a dar la masa mínima. Al sustituir y resolver obtenemos:
+\begin{equation}
+M_p=0.7\,\text{masas de Júpiter}
+\end{equation}
+Para obtener la masa real del planeta usamos la conservación del momento angular:
+\begin{equation}
+M_s\,V_s\,r=M_p\,V_p\,r
+\label{ma}
+\end{equation}
+Donde $M$ representa la masa, $V$ la velocidad y $r$ el radio de la órbita planetaria el cual se cancela. $V_p$ puede ser calculando de la siguiente manera:
+\begin{equation}
+V_p=\frac{2{\pi}a_p}{T}
+\label{vp}
+\end{equation}
+Donde $a_p$ es la distancia estrella-planeta en metros y $T$ es el periodo en segundos. Sustituyendo la Ec.\ref{vp} en \ref{ma} y resolviendo tenemos:
+\begin{equation}
+M_p=\frac{M_sV_sT}{2{\pi}a_p}\,\approx\,1.41\tenpow{26}\,kg
+\end{equation}
+Dicha masa es equivalente a:
+\begin{equation}
+0.7\,\text{masas de Júpiter}=23.64\,\text{masas terrestres}=0.0001\,\text{masas solares}
+\end{equation}
+\textbf{Ej. 7:} Si el valor de la masa estelar se conoce con una incertidumbre del 10$\%$, cómo influye esto en la determinación de la masa del planeta?\\\\
+Ya que la masa de la estrella es un valor utilizado para obtener la masa del planeta, una incertidumbre en el valor de la masa de la estrella se acarrea generando así una incertidumbre en el valor de la masa del planeta.\\\\
+\textbf{Ej.8:} Calcula la densidad del planeta, e intenta deducir qué tipo de planeta puede ser (rocoso, gaseoso ..)\\\\
+Para calcular la densidad utilizamos:
+\begin{gather}
+d=\frac{M_p}{V}\\
+d=\frac{3{\cdot}M_p}{4{\pi}R^3_p}\,{\approx}\,1079.61\,kg/m^3=1.08\,g/cm^3
+\end{gather}
+Comparando la densidad obtenida con la densidad de los planetas en nuestro sistema solar es muy probable que el planeta sea de tipo gaseoso.
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\hline
+Planeta  & \begin{tabular}[c]{@{}c@{}}Densidad promedio\\ (gr/cm\textasciicircum{}3)\end{tabular} \\ \hline
+Mercurio & 5.4                                                                                    \\
+Venus    & 5.2                                                                                    \\
+Tierra   & 5.5                                                                                    \\
+Marte    & 3.9                                                                                    \\
+Júpiter  & 1.3                                                                                    \\
+Saturno  & 0.7                                                                                    \\
+Urano    & 1.3                                                                                    \\
+Neptuno  & 1.6                                                                                    \\ \hline
+\end{tabular}
+\caption{Densidades de los planetas en el Sistema Solar}
+\end{table}
+\textbf{Ej.9:} : Calcula la temperatura de equilibrio del planeta. Utiliza un albedo nulo, o el valor del albedo de la Tierra. Comenta el valor obtenido.\\\\
+Para obtener la temperatura de equilibrio $(T_{eq})$ usamos la siguiente formula:
+\begin{equation}
+T_{eq}=T_s(1-A)^{1/4}\sqrt{\frac{R_s}{2a}}
+\end{equation}
+En donde $T_s$ es la temperatura de la estrella, $A$ es el albedo, $R_s$ es el radio de la estrella y $a$ es la distancia estrella-planeta.\\\\
+Sustituyendo y resolviendo obtenemos:
+\begin{gather}
+T_{eq}\,\approx\,647.99\,K\,\text{utilizando un albedo nulo}\\
+T_{eq}\,\approx\,592.71\,K\,\text{utilizando el albedo medio de la Tierra (0.3)}
+\end{gather}
+\textbf{Ej.10:} Sitúa el planeta en un diagrama con las zonas habitabilidad, y discute si se encuentra o no en zona habitable.\\\\
+Basándonos en el diagrama de habitabilidad incluido en la guía para esta actividad general se concluye que el planeta no se encuentra dentro de la zona habitable ya que con una distancia de $0.03\,U.A.$ y una masa de $0.0001\,M_\odot$ se encontraría por debajo de limite inferior de masas.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{map.png}
+\caption{Diagrama de zonas de habitabilidad}
+\label{fig:map}
+\end{figure}
+\textbf{Ej. 11:} De qué planeta se trata? Busca en qué año fue detectado, por qué método, y por qué investigadores. Puedes buscar más información extra si lo deseas.\\\\
+Tras una extensa investigación el planeta cuyas características se asemejan mas al de esta actividad es Gliese 436 b. A continuación una tabla en donde se comparan sus características.
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\hline
+                & Planeta (actividad)          & Gliese 436 b                 \\ \hline
+Semi-eje Mayor  & 0.03 U.A.                    & 0.028 U.A.                   \\ \hline
+Excentricidad   & 0.16                         & 0.152                        \\ \hline
+Periodo Orbital & 2.6439 días                  & 2.6439 días                  \\ \hline
+Semi-amplitud   & 18.46                        & 17.38                        \\ \hline
+Radio promedio  & 4.9 $R_T$                     & 4.3 $R_T$                     \\ \hline
+Masa            & 23.64 $M_T$                   & 21.36 $M_T$                   \\ \hline
+Densidad        & 1.08 $g/cm^3$                 & 1.51 $g/cm^3$   \\ \hline
+$T_{eq}$        & 647.99 K                     & 712 K                        \\ \hline
+\end{tabular}
+\caption{Comparación de las propiedades físicas y orbitales el planeta Gliese 436 b y los obtenidos durante la actividad. }
+\end{table}
+\textbf{Anexo:} A continuación encontrara el código creado para realizar la actividad anterior. Las gráficas creadas se guardan bajos los nombres de \texttt{"graf{\_}FV"} para la gráfica de la variación de flujo y \texttt{"graf{\_}RV"} para la gráfica de la velocidad radial.
+\begin{verbatim}
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec  1 18:32:06 2021
+
+@author: ivanp
+"""
+#Librerias Necesarias
+from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# Constantes
+Ms = 9e29#kg
+Msl = 0.45#masas solares
+Rs = 320.16e6#m
+Ts = 3350#Kelvin
+Pa = 7.21e-3#años sidereos
+P = 2.6439#dias
+Psg = 228432.96#segundos
+G = 6.674e-11#constante gravitacional
+e = 0.16#exentricidad
+
+#  Lectura de los datos
+df= pd.read_table('TRANSITO.txt', 
+                  delim_whitespace=True)
+data = pd.read_table('RV_HIRES.txt', 
+                     delim_whitespace=True)
+
+#  Renombrando columnas
+df.columns = ["HJD", "Flux", "Noise"]
+data.columns = ["Time", "Velocity", "Error", "Phase"]
+data["Time"] = data["Time"].apply(lambda x: x/365)
+
+
+#  Convirtiendo a numpy.array
+xdata = np.array(df["HJD"])
+ydata = np.array(df["Flux"])
+
+
+#  Plot de los datos
+plt.xlabel("HJD")
+plt.ylabel("Flux")
+plt.title('Flux variation over time')
+plt.plot(xdata, 
+         ydata,
+         "o", 
+         color="blue",
+         linestyle=":", 
+         label="Flux" )
+
+plt.grid(ls="--",
+         color="#000000",
+         alpha=0.7)
+
+plt.legend(frameon=False,
+           ncol=2,
+           loc="lower left",
+           fontsize=14)
+
+plt.tight_layout()
+plt.savefig("graf_FV.png")
+plt.show()
+
+#Funcion del fit
+def cos_func(x, a, b, c):
+    return a*np.cos(b*x+c)
+
+#  Convirtiendo a numpy.array
+xdata = np.array(data["Phase"])
+ydata = np.array(data["Velocity"])
+yerr = np.array(data["Error"])
+
+# Curva del fit
+parameters, covariance = curve_fit(cos_func,
+                                   xdata,
+                                   ydata)
+# Parametros
+fit_D = parameters[0]
+fit_E = parameters[1]
+fit_F = parameters[2]
+
+# Creando fit en x
+x_fit = np.linspace(0, 1, 100)
+
+# Creado fit en y
+fit_cos = cos_func(x_fit,
+                   fit_D,
+                   fit_E,
+                   fit_F)
+#  Plot de los datos
+plt.errorbar(xdata,
+             ydata,
+             yerr=yerr,
+             fmt=".k",
+             ecolor="#3f37c9",
+             label="Data")
+plt.xlabel("Phases")
+plt.ylabel("radial velocity [m/s]")
+plt.title('Radial velocity')
+plt.plot(x_fit,
+         fit_cos,
+         label='Fit',
+         ls="--",
+         color="#b5179e")
+plt.xlim(0, 1)
+plt.xticks(np.linspace(0, 1, 11))
+plt.ylim(-35, 35)
+plt.yticks(np.linspace(-35, 35, 11))
+plt.grid(ls="--",
+         color="#000000",
+         alpha=0.7)
+plt.legend(frameon=False,
+           ncol=2,
+           loc="upper left",
+           fontsize=14)
+plt.tight_layout()
+plt.savefig("graf_RV.png")
+plt.show()
+
+#-----------------------Resultados------------------
+#Diferencia de flujo/Profundidad de Transito
+c1=max(df["Flux"])  
+c2=min(df["Flux"])
+TD=(c1-c2)/c1
+
+#Radio del planeta
+Rp = (np.sqrt(TD))*(Rs)
+
+#Distancia Estrella - Planeta 
+a = np.cbrt(Msl*(Pa**2))#UA
+a2 = a*149597870.7#km
+
+#Semi-amplitud
+k = max(fit_cos) #basado en el fit
+k2 = max(ydata) #basado en los datos
+
+#Calculo de masa minima y real
+Mmin = (4.92e-3)*(np.sqrt(1-(e**2)))*k*(np.cbrt(P))*(Msl**(2/3))#Masa minima
+Mp = (Ms*k*Psg)/(2*np.pi*(a2*1000))#Masa real
+Mpj = Mp/(1.898e27)#Masa en masas de Jupiter
+Mpt = Mp/(5.97e24)#Masa en masas terrestres
+Mps = Mp/(2e30)#Masa en masas solares
+
+#Calculo de densidad
+d = (3*Mp)/(4*np.pi*((Rp)**3))#kg/m^3
+dg = d*1000/(100**3)#g/cm^3
+
+#Calculo de la temp. de equilibrio
+Teq = Ts*(np.sqrt((Rs/1000)/(2*a2)))#albedo 0
+Teqa = Ts*((1-0.3)**(1/4))*(np.sqrt((Rs/1000)/(2*a2)))#albedo de la tierra = 0.3
+
+#Print de resultados
+print("La profundidad de transito es",round(TD,4)) 
+print()
+print("El radio del Planeta es", round(Rp,2),"m","o", round(Rp/1000,2),"km")
+print()
+print("La distancia estrella-planeta es",round(a,2),"UA")
+print( "que es igual a",round(a2,2),"km" )
+print()
+print("El valor de k basado en el fit es:", round(k,2),"m/s")
+print("El valor de k basado en los datos es:", k2,"m/s")
+print()
+print("La masa minima del planeta es", round(Mmin,2),"masas de Jupiter")
+print()
+print("La masa real del planeta es de", round(Mp,2), "kg")
+print("lo que es igual a",round(Mpj,2),"masas de Jupiter")
+print("o",round(Mpt,2),"masas terrestres","o",round(Mps,4),"masas solares")
+print()
+print("La densidad del planeta es",round(d,2),"kg/m^3", "o",round(dg,2),"g/cm^3")
+print()
+print("La temperatura de equilibrio con un albedo nulo es",round(Teq,2),"K")
+print("con el albedo medio de la Tierra (0.3), es",round(Teqa,2),"K")
+\end{verbatim}
+
+
+
+
+\end{document}
